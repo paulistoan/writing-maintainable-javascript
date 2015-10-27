@@ -25,7 +25,9 @@ define([], function () {
         };
 
         this.export = function () {
-            var tableEl = $("<table><thead></thead><tbody></tbody></table>");
+            var tableEl = $(
+                "<table><thead></thead><tbody></tbody></table>"
+            );
 
             var tableHeaderRowEl = generateTableHeaderRow();
             tableEl.find("thead").append(tableHeaderRowEl);
@@ -36,8 +38,10 @@ define([], function () {
             return tableEl;
 
             function generateTableHeaderRow() {
-                var headerCellEls = tableColumns.map(function (column) {
-                    return $("<th>" + column.label + "</th>");
+                var headerCellEls = tableColumns.map(function (
+                    column) {
+                    return $("<th>" + column.label +
+                        "</th>");
                 });
                 var trEl = $("<tr></tr>");
                 trEl.append(headerCellEls);
@@ -47,8 +51,10 @@ define([], function () {
             function generateTableDataRows() {
                 return tableData.map(function (rowData) {
                     var trEl = $("<tr></tr>");
-                    var tdEls = rowData.map(function (rowValue) {
-                        return $("<td>" + rowValue + "</td>");
+                    var tdEls = rowData.map(function (
+                        rowValue) {
+                        return $("<td>" + rowValue +
+                            "</td>");
                     });
                     trEl.append(tdEls);
                     return trEl;

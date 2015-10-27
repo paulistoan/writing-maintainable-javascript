@@ -20,7 +20,8 @@ define(["underscore", "vcards-js"], function (_, vCardFormatter) {
                 workAddress: {}
             };
 
-            vCardAccumulator += vCardFormatter.getFormattedString(vCard);
+            vCardAccumulator += vCardFormatter.getFormattedString(
+                vCard);
         };
 
         this.export = function () {

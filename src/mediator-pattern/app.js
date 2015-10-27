@@ -12,7 +12,7 @@ define(["jquery", "Form"], function ($, Form) {
         var form = new Form();
 
         $("div.app")
-          .empty()
-          .append(form.render());
+            .empty()
+            .append(form.render());
     }
 });

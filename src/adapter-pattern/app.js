@@ -15,7 +15,8 @@ requirejs.config({
 define(["jquery", "underscore", "data", "HtmlTableExporter",
     "JsonExporter", "VCardExporter", "FileGenerator"
 ], function (
-    $, _, data, HtmlTableExporter, JsonExporter, VCardExporter, FileGenerator) {
+    $, _, data, HtmlTableExporter, JsonExporter, VCardExporter,
+    FileGenerator) {
 
     $(document).ready(initialize);
 
@@ -52,7 +53,8 @@ define(["jquery", "underscore", "data", "HtmlTableExporter",
 
     function populate(exporter) {
         data.keyLabelMappings.forEach(function (keyLabelMapping) {
-            exporter.addColumn(keyLabelMapping.key, keyLabelMapping.label);
+            exporter.addColumn(keyLabelMapping.key,
+                keyLabelMapping.label);
         });
         data.patients.forEach(function (patient) {
             exporter.addRow(patient);
