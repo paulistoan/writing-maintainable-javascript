@@ -1,0 +1,15 @@
+table.patients,
+table.patients th,
+table.patients td {
+    border: 1px solid black;
+}
+
+button {
+    margin-top: 5px;
+}
+
+pre {
+    width: 50%;
+    white-space: pre-wrap;
+    border: 1px solid black;
+}

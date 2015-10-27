@@ -1,0 +1,28 @@
+section h3.code {
+  text-transform: none;
+}
+
+section pre.taller code {
+  max-height: 600px;
+}
+
+p.footer {
+  text-align: right;
+}
+
+p.footer img.logo {
+  border: none;
+}
+
+section p.reference {
+  text-align: right;
+  font-size: 50%;
+}
+
+pre.tree {
+  font-size: 40%;
+}
+
+pre.small {
+  font-size: 40%;
+}
