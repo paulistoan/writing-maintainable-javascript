@@ -4,6 +4,7 @@ define(["jquery", "TextField", "CheckboxField"],
             var firstName = new TextField("First name"),
                 lastName = new TextField("Last name"),
                 username = new TextField("username"),
+                birthDate = new TextField("Birth Date"),
                 homeStreetAddress = new TextField("Street address"),
                 homeCity = new TextField("City"),
                 homePostalCode = new TextField("Postal code"),
@@ -18,6 +19,8 @@ define(["jquery", "TextField", "CheckboxField"],
                     .append(firstName.render())
                     .append(lastName.render())
                     .append(username.render())
+                    .append("<br/>")
+                    .append(birthDate.render())
                     .append("<br/>")
                     .append(homeStreetAddress.render())
                     .append(homeCity.render())
