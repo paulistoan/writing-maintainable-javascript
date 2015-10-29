@@ -13,6 +13,7 @@ define(["jquery", "TextField", "CheckboxField"],
                 mailingStreetAddress = new TextField("Mailing address"),
                 mailingCity = new TextField("City"),
                 mailingPostalCode = new TextField("Postal code");
+                phoneNumber = new TextField("Phone Number"),
 
             this.render = function () {
                 var el = $("<div></div>")
@@ -29,7 +30,9 @@ define(["jquery", "TextField", "CheckboxField"],
                     .append(homeAddressSameAsMailingAddress.render())
                     .append(mailingStreetAddress.render())
                     .append(mailingCity.render())
-                    .append(mailingPostalCode.render());
+                    .append(mailingPostalCode.render())
+                    .append("<br/>")
+                    .append(phoneNumber.render());
 
                 setupUserNameGeneration();
                 setupHomeMailingAddressSync();
