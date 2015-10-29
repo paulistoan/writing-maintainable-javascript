@@ -5,11 +5,11 @@ requirejs.config({
 });
 
 define(["jquery", "config",
-        "RangeSearchFieldFactory", "IsbnSearchFieldFactory",
+        "RangeSearchFieldFactory", "PhoneNumberSearchFieldFactory",
         "TextSearchFieldFactory"
     ],
     function ($, config,
-        RangeSearchFieldFactory, IsbnSearchFieldFactory,
+        RangeSearchFieldFactory, PhoneNumberSearchFieldFactory,
         TextSearchFieldFactory) {
         $(document).ready(initialize);
 
@@ -28,8 +28,8 @@ define(["jquery", "config",
                     var factory;
                     if (searchFieldConfig.type === 'range') {
                         factory = new RangeSearchFieldFactory();
-                    } else if (searchFieldConfig.type === 'isbn') {
-                        factory = new IsbnSearchFieldFactory();
+                    } else if (searchFieldConfig.type === 'phoneNumber') {
+                        factory = new PhoneNumberSearchFieldFactory();
                     } else {
                         factory = new TextSearchFieldFactory();
                     }

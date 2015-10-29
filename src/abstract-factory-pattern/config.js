@@ -2,16 +2,16 @@ define(function () {
     return {
         searchFields: [{
             type: 'range',
-            name: 'Price'
+            name: 'Age'
         }, {
-            type: 'isbn',
-            name: 'ISBN'
-        }, {
-            type: 'text',
-            name: 'Title'
+            type: 'phoneNumber',
+            name: 'Phone Number'
         }, {
             type: 'text',
-            name: 'Author'
+            name: 'First Name'
+        }, {
+            type: 'text',
+            name: 'Last Name'
         }]
     };
 });
