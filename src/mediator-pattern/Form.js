@@ -8,37 +8,41 @@ define(["jquery", "TextField", "CheckboxField"],
                 homeStreetAddress = new TextField("Street address"),
                 homeCity = new TextField("City"),
                 homePostalCode = new TextField("Postal code"),
-                homeAddressSameAsMailingAddress = new CheckboxField(
+                mailingAddressSameAsHomeAddress = new CheckboxField(
                     "Mailing address same as home address"),
                 mailingStreetAddress = new TextField("Mailing address"),
                 mailingCity = new TextField("City"),
-                mailingPostalCode = new TextField("Postal code");
-            phoneNumber = new TextField("Phone Number"),
+                mailingPostalCode = new TextField("Postal code"),
+                phoneNumber = new TextField("Phone Number");
 
-                this.render = function () {
-                    var el = $("<div></div>")
-                        .append(firstName.render())
-                        .append(lastName.render())
-                        .append(username.render())
-                        .append("<br/>")
-                        .append(birthDate.render())
-                        .append("<br/>")
-                        .append(homeStreetAddress.render())
-                        .append(homeCity.render())
-                        .append(homePostalCode.render())
-                        .append("<br/>")
-                        .append(homeAddressSameAsMailingAddress.render())
-                        .append(mailingStreetAddress.render())
-                        .append(mailingCity.render())
-                        .append(mailingPostalCode.render())
-                        .append("<br/>")
-                        .append(phoneNumber.render());
+            this.render = function () {
+                var el = $("<div></div>")
+                    .append("<h3>Personal Info</h3>")
+                    .append(firstName.render())
+                    .append(lastName.render())
+                    .append(username.render())
+                    .append("<br/>")
+                    .append(birthDate.render())
+                    .append("<br/>")
+                    .append("<h3>Home Address</h3>")
+                    .append(homeStreetAddress.render())
+                    .append(homeCity.render())
+                    .append(homePostalCode.render())
+                    .append("<br/>")
+                    .append("<h3>Mailing Address</h3>")
+                    .append(mailingAddressSameAsHomeAddress.render())
+                    .append(mailingStreetAddress.render())
+                    .append(mailingCity.render())
+                    .append(mailingPostalCode.render())
+                    .append("<br/>")
+                    .append("<h3>Other</h3>")
+                    .append(phoneNumber.render());
 
-                    setupUserNameGeneration();
-                    setupHomeMailingAddressSync();
+                setupUserNameGeneration();
+                setupHomeMailingAddressSync();
 
-                    return el;
-                };
+                return el;
+            };
 
             function setupUserNameGeneration() {
                 var userHasSpecifiedUsername = false;
@@ -83,11 +87,11 @@ define(["jquery", "TextField", "CheckboxField"],
                     processHomeMailingAddressChangeEvent);
                 $(homePostalCode).on('change',
                     processHomeMailingAddressChangeEvent);
-                $(homeAddressSameAsMailingAddress).on('change',
+                $(mailingAddressSameAsHomeAddress).on('change',
                     processHomeMailingAddressChangeEvent);
 
                 function processHomeMailingAddressChangeEvent() {
-                    if (homeAddressSameAsMailingAddress.val()) {
+                    if (mailingAddressSameAsHomeAddress.val()) {
                         copyHomeAddressToMailingAddress();
                         toggleMailingAddress(false);
                     } else {
