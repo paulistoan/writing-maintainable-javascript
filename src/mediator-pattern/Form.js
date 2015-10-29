@@ -13,32 +13,32 @@ define(["jquery", "TextField", "CheckboxField"],
                 mailingStreetAddress = new TextField("Mailing address"),
                 mailingCity = new TextField("City"),
                 mailingPostalCode = new TextField("Postal code");
-                phoneNumber = new TextField("Phone Number"),
+            phoneNumber = new TextField("Phone Number"),
 
-            this.render = function () {
-                var el = $("<div></div>")
-                    .append(firstName.render())
-                    .append(lastName.render())
-                    .append(username.render())
-                    .append("<br/>")
-                    .append(birthDate.render())
-                    .append("<br/>")
-                    .append(homeStreetAddress.render())
-                    .append(homeCity.render())
-                    .append(homePostalCode.render())
-                    .append("<br/>")
-                    .append(homeAddressSameAsMailingAddress.render())
-                    .append(mailingStreetAddress.render())
-                    .append(mailingCity.render())
-                    .append(mailingPostalCode.render())
-                    .append("<br/>")
-                    .append(phoneNumber.render());
+                this.render = function () {
+                    var el = $("<div></div>")
+                        .append(firstName.render())
+                        .append(lastName.render())
+                        .append(username.render())
+                        .append("<br/>")
+                        .append(birthDate.render())
+                        .append("<br/>")
+                        .append(homeStreetAddress.render())
+                        .append(homeCity.render())
+                        .append(homePostalCode.render())
+                        .append("<br/>")
+                        .append(homeAddressSameAsMailingAddress.render())
+                        .append(mailingStreetAddress.render())
+                        .append(mailingCity.render())
+                        .append(mailingPostalCode.render())
+                        .append("<br/>")
+                        .append(phoneNumber.render());
 
-                setupUserNameGeneration();
-                setupHomeMailingAddressSync();
+                    setupUserNameGeneration();
+                    setupHomeMailingAddressSync();
 
-                return el;
-            };
+                    return el;
+                };
 
             function setupUserNameGeneration() {
                 var userHasSpecifiedUsername = false;

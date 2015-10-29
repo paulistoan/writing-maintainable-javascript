@@ -28,7 +28,8 @@ define(["jquery", "config",
                     var factory;
                     if (searchFieldConfig.type === 'range') {
                         factory = new RangeSearchFieldFactory();
-                    } else if (searchFieldConfig.type === 'phoneNumber') {
+                    } else if (searchFieldConfig.type ===
+                        'phoneNumber') {
                         factory = new PhoneNumberSearchFieldFactory();
                     } else {
                         factory = new TextSearchFieldFactory();
