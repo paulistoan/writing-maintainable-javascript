@@ -26,3 +26,18 @@ pre.tree {
 pre.small {
   font-size: 40%;
 }
+
+section.design-patterns-book {
+  position: relative;
+}
+
+section.design-patterns-book div.book-cover {
+  float: left;
+  width: 30%;
+}
+
+section.design-patterns-book div.content {
+  margin-left: 50px;
+  float: left;
+  width: 60%;
+}

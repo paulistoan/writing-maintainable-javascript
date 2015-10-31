@@ -5,3 +5,7 @@
 .search-container * {
     margin-top: 5px;
 }
+
+.search-container pre {
+  width: 400px;
+}

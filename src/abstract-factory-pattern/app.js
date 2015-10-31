@@ -99,7 +99,7 @@ define(["jquery", "config",
 
                     $(".search-container .json-output")
                         .empty()
-                        .append(JSON.stringify(values));
+                        .append(JSON.stringify(values, null, 2));
                 });
 
                 function buildValuesObject() {

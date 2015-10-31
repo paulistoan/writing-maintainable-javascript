@@ -1,60 +1,61 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
 
-		<title>Writing Maintainable JavaScript</title>
+  <title>Writing Maintainable JavaScript</title>
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
-		<link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="css/custom.css">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ?
+      'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
 
-		<!--[if lt IE 9]>
+  <!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
+  <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h3>Writing Maintainable JavaScript</h3>
-					<p>
-						<small>by <a href="mailto:paulistoan@gmail.com">Paul Istoan</a></small>
-					</p>
-          <p class='footer'>
-            <img class='logo' src='./img/codecamp-logo.png'/>
-          </p>
-				</section>
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h3>Writing Maintainable JavaScript</h3>
+        <p>
+          <small>by <a href="mailto:paulistoan@gmail.com">Paul Istoan</a></small>
+        </p>
+        <p class='footer'>
+          <img class='logo' src='./img/codecamp-logo.png' />
+        </p>
+      </section>
 
-				<section>
-					<h2>Modules</h2>
-          <ul>
-            <li>Modules help us organize our code</li>
-            <li>Modules help us avoid polluting the global namespace</li>
-          </ul>
-					<pre class='tree'>
+      <section>
+        <h2>Modules</h2>
+        <ul>
+          <li>Modules help us organize our code</li>
+          <li>Modules help us avoid polluting the global namespace</li>
+        </ul>
+        <pre class='tree'>
 .
 ├── css
 │   └── style.css
@@ -75,14 +76,14 @@
         ├── itemcollectionview.js
         └── itemview.js
 					</pre>
-          <p class='reference'>
-            <a href='https://github.com/javascript-playground/backbone-require-example'>[1]</a>
-          </p>
-				</section>
+        <p class='reference'>
+          <a href='https://github.com/javascript-playground/backbone-require-example'>[1]</a>
+        </p>
+      </section>
 
-        <section>
-          <h2>RequireJS</h2>
-          <pre><code>
+      <section>
+        <h2>RequireJS</h2>
+        <pre><code>
 define(["lib/backbone"], function(Backbone) {
   function ItemView() {
     // ...
@@ -90,12 +91,12 @@ define(["lib/backbone"], function(Backbone) {
   return ItemView;
 });
           </code></pre>
-        </section>
+      </section>
 
-        <section>
-          <h2>RequireJS</h2>
-          <pre><code>
-define(["backbone", "views/ItemView"]
+      <section>
+        <h2>RequireJS</h2>
+        <pre><code>
+define(["lib/backbone", "views/ItemView"]
     function(Backbone, ItemView) {
   function ItemCollectionView () {
     // ...
@@ -103,68 +104,71 @@ define(["backbone", "views/ItemView"]
   return ItemCollectionView;
 });
           </code></pre>
-        </section>
+      </section>
 
-        <section class='design-patterns-book'>
-          <h2>Design Patterns</h2>
-          <div>
-            <div class='book-cover'>
-              <img class='design-patterns-book-cover' src="img/design-patterns-book.jpg"/>
-            </div>
-            <div class='content'>
-              <ul>
-                <li>
-                  One of the most influential books in the field of software engineering.
-                  <small><a href="https://en.wikipedia.org/wiki/Design_Patterns">[1]</a></small>
-                </li>
-                <li>Presents 23 essential software design patterns that came out of recurring solutions to common problems.</li>
-                <li>Changes the way you approach writing software.</li>
-              </ul>
-            </div>
+      <section class='design-patterns-book'>
+        <h2>Design Patterns</h2>
+        <div>
+          <div class='book-cover'>
+            <img class='design-patterns-book-cover' src="img/design-patterns-book.jpg" />
           </div>
-        </section>
+          <div class='content'>
+            <ul>
+              <li>
+                One of the most influential books in the field of software engineering.
+                <small><a href="https://en.wikipedia.org/wiki/Design_Patterns">[1]</a></small>
+              </li>
+              <li>Presents 23 essential software design patterns that came out of recurring
+                solutions to common problems.</li>
+              <li>Changes the way you approach writing software.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <section>
-          <h2>Essential Takeaways</h2>
-          <ul>  
-            <li>Program to interfaces, not to implementations.</li>
-            <li>Favor composition over inheritance.</li>
-          </ul>
-        </section>
+      <section>
+        <h2>Essential Takeaways</h2>
+        <ul>
+          <li>Program to interfaces, not to implementations.</li>
+          <li>Favor composition over inheritance.</li>
+        </ul>
+      </section>
 
-        <section>
-          <h2>3 Types of Patterns</h2>
-          <ol>  
-            <li><strong>Creational</strong>: help you build objects</li>
-            <li><strong>Structural</strong>: help you compose objects</li>
-            <li><strong>Behavioral</strong>: help you organize functionality</li>
-          </ol>
-        </section>
+      <section>
+        <h2>3 Types of Patterns</h2>
+        <ol>
+          <li><strong>Creational</strong>: help you build objects</li>
+          <li><strong>Structural</strong>: help you compose objects</li>
+          <li><strong>Behavioral</strong>: help you organize functionality</li>
+        </ol>
+      </section>
 
-        <section>
-          <h2>Sample App: Contacts</h2>
-          <ul>
-            <li>Search - Abstract Factory Pattern</li>
-            <li>Export - Adapter Pattern</li>
-            <li>Add - Mediator Pattern</li>
-          </ul>
-        </section>
+      <section>
+        <h2>Sample App: Contacts</h2>
+        <ul>
+          <li>Search - Abstract Factory Pattern</li>
+          <li>Export - Adapter Pattern</li>
+          <li>Add - Mediator Pattern</li>
+        </ul>
+      </section>
 
-        <section>
-          <h2>Abstract Factory</h2>
-          <ul>
-            <li>Search filters</li>
-            <li><a target="_blank" href="../src/abstract-factory-pattern/index.html">Demo</a></li>
-          </ul>
-        </section>
+      <section>
+        <h2>Abstract Factory</h2>
+        <img src="./img/design-patterns-formal/abstract-factory.svg" />
+      </section>
 
-        <section>
-          <img src='./img/screenshots/abstract-factory-pattern.png'/>
-        </section>
+      <section>
+        <img src='./img/screenshots/abstract-factory.png' />
+        <div><a target="_blank" href="../src/abstract-factory-pattern/index.html">Demo</a></div>
+      </section>
 
-        <section>
-          <h3 class='code'>config.js</h3>
-          <pre><code>{
+      <section>
+        <img src="./img/design-patterns-applied/abstract-factory.png" />
+      </section>
+
+      <section>
+        <h3 class='code'>config.js</h3>
+        <pre><code>{
   searchFields: [{
       type: 'range',
       name: 'Age'
@@ -179,33 +183,41 @@ define(["backbone", "views/ItemView"]
       name: 'Last Name'
   }]
 }</code></pre>
-        </section>
+      </section>
 
-        <section>
-          <h2>Adapter</h2>
-          <ul>
-            <li>Contact List</li>
-            <li><a target="_blank" href="../src/adapter-pattern/index.html">Demo</a></li>
-          </ul>
-        </section>
+      <section>
+        <h2>Adapter</h2>
+        <img src="./img/design-patterns-formal/adapter.gif" />
+      </section>
 
-        <section>
-          <img src='./img/screenshots/adapter-pattern.png'/>
-        </section>
+      <section>
+        <img src='./img/screenshots/adapter.png' />
+        <div><a target="_blank" href="../src/adapter-pattern/index.html">Demo</a></div>
+      </section>
 
-        <section>
-          <h2>Mediator</h2>
-          <ul>
-            <li>Registration</li>
-            <li><a target="_blank" href="../src/mediator-pattern/index.html">Demo</a></li>
-          </ul>
-        </section>
+      <section>
+        <img src="./img/design-patterns-applied/adapter.png" />
+      </section>
 
-        <section>
-          <h3>Questions?</h3>
-        </section>
+      <section>
+        <h2>Mediator</h2>
+        <img src="./img/design-patterns-formal/mediator.jpeg" />
+      </section>
 
-<!--
+      <section>
+        <img src='./img/screenshots/mediator.png' />
+        <div><a target="_blank" href="../src/mediator-pattern/index.html">Demo</a></div>
+      </section>
+
+      <section>
+        <img src="./img/design-patterns-applied/mediator.png" />
+      </section>
+
+      <section>
+        <h3>Questions?</h3>
+      </section>
+
+      <!--
         <section>
           <h3>index.html</h3>
           <pre><code>
@@ -213,36 +225,58 @@ define(["backbone", "views/ItemView"]
         </section>
 -->
 
-			</div>
-		</div>
+    </div>
+  </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
 
-		<script>
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [{
+        src: 'lib/js/classList.js',
+        condition: function () {
+          return !document.body.classList;
+        }
+      }, {
+        src: 'plugin/markdown/marked.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      }, {
+        src: 'plugin/markdown/markdown.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      }, {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+        condition: function () {
+          return !!document.querySelector('pre code');
+        },
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }, {
+        src: 'plugin/zoom-js/zoom.js',
+        async: true
+      }, {
+        src: 'plugin/notes/notes.js',
+        async: true
+      }]
+    });
+  </script>
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+</body>
 
-		</script>
-
-	</body>
 </html>
