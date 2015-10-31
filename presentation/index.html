@@ -6,9 +6,6 @@
 
 		<title>Writing Maintainable JavaScript</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
@@ -87,15 +84,8 @@
           <h2>RequireJS</h2>
           <pre><code>
 define(["lib/backbone"], function(Backbone) {
-  var ItemView = Backbone.View.extend({
-    tagName: "div",
-    className: "item-wrap",
-    template: _.template($("#itemTemplate").html()),
-
-    render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
-      return this;
-    }
+  function ItemView() {
+    // ...
   });
   return ItemView;
 });
@@ -105,16 +95,9 @@ define(["lib/backbone"], function(Backbone) {
         <section>
           <h2>RequireJS</h2>
           <pre><code>
-define(["lib/backbone", "models/item", "views/itemview"],
-   function(Backbone, Item, ItemView) {
-  var ItemCollectionView = Backbone.View.extend({
-    // ...
-
-    renderItem: function(item) {
-      var itemView = new ItemView({model: item});
-      this.$el.append(itemView.render().el);
-    },
-
+define(["backbone", "views/ItemView"]
+    function(Backbone, ItemView) {
+  function ItemCollectionView () {
     // ...
   });
   return ItemCollectionView;
@@ -122,16 +105,23 @@ define(["lib/backbone", "models/item", "views/itemview"],
           </code></pre>
         </section>
 
-        <section>
+        <section class='design-patterns-book'>
           <h2>Design Patterns</h2>
-          <ul>  
-            <li>
-              One of the most influential books in the field of software engineering.
-              <small><a href="https://en.wikipedia.org/wiki/Design_Patterns">[1]</a></small>
-            </li>
-            <li>Presents 23 essential software design patterns derived from real world experience.</li>
-            <li>Change the way you think about writing software.</li>
-          </ul>
+          <div>
+            <div class='book-cover'>
+              <img class='design-patterns-book-cover' src="img/design-patterns-book.jpg"/>
+            </div>
+            <div class='content'>
+              <ul>
+                <li>
+                  One of the most influential books in the field of software engineering.
+                  <small><a href="https://en.wikipedia.org/wiki/Design_Patterns">[1]</a></small>
+                </li>
+                <li>Presents 23 essential software design patterns that came out of recurring solutions to common problems.</li>
+                <li>Changes the way you approach writing software.</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -145,19 +135,18 @@ define(["lib/backbone", "models/item", "views/itemview"],
         <section>
           <h2>3 Types of Patterns</h2>
           <ol>  
-            <li>Creational</li>
-            <li>Structural</li>
-            <li>Behavioral</li>
+            <li><strong>Creational</strong>: help you build objects</li>
+            <li><strong>Structural</strong>: help you compose objects</li>
+            <li><strong>Behavioral</strong>: help you organize functionality</li>
           </ol>
-          <p><small>TODO: Add short description for each type</small></p>
         </section>
 
         <section>
-          <h2>Sample App</h2>
+          <h2>Sample App: Contacts</h2>
           <ul>
             <li>Search - Abstract Factory Pattern</li>
             <li>Export - Adapter Pattern</li>
-            <li>...</li>
+            <li>Add - Mediator Pattern</li>
           </ul>
         </section>
 
@@ -170,24 +159,7 @@ define(["lib/backbone", "models/item", "views/itemview"],
         </section>
 
         <section>
-          <h3 class='code'>index.html</h3>
-          <pre><code>&lt;html&gt;
-&lt;head&gt;
-  <link rel="stylesheet" type="text/css" href="main.css" />
-  <script data-main="app" src="lib/require.js"></script>
-&lt;/head&gt;
-&lt;body&gt;
-  <div class='search-container'>
-    <div class='fields'></div>
-
-    <button class='validate'>Validate</button>
-    <div class='validation-errors'></div>
-
-    <button class='to-json'>To JSON</button>
-    <pre class='json-output'></pre>
-  </div>
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+          <img src='./img/screenshots/abstract-factory-pattern.png'/>
         </section>
 
         <section>
@@ -195,241 +167,17 @@ define(["lib/backbone", "models/item", "views/itemview"],
           <pre><code>{
   searchFields: [{
       type: 'range',
-      name: 'Price'
+      name: 'Age'
   }, {
-      type: 'isbn',
-      name: 'ISBN'
-  }, {
-      type: 'text',
-      name: 'Title'
+      type: 'phoneNumber',
+      name: 'Phone Number'
   }, {
       type: 'text',
-      name: 'Author'
+      name: 'First Name'
+  }, {
+      type: 'text',
+      name: 'Last Name'
   }]
-}</code></pre>
-        </section>
-
-        <section>
-          <h3 class='code'>app.js</h3>
-          <pre><code>$(document).ready(initialize);
-
-function initialize() {
-    var searchFields = initializeSearchFields();
-
-    createSearchFieldElements();
-    appendSearchFieldElementsToDom();
-    initializeValueRetrieversOnSearchFields();
-    initializeValidatorsOnSearchFields();
-    setupValidateEventHandler();
-    setupJsonExporter();
-
-    // definitions for function above ...
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function initializeSearchFields() {
-    return config.searchFields.map(function (searchFieldConfig) {
-        var factory;
-        if (searchFieldConfig.type === 'range') {
-            factory = new RangeSearchFieldFactory();
-        } else if (searchFieldConfig.type === 'isbn') {
-            factory = new IsbnSearchFieldFactory();
-        } else {
-            factory = new TextSearchFieldFactory();
-        }
-
-        return {
-            config: searchFieldConfig,
-            factory: factory
-        };
-    });
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function createSearchFieldElements() {
-    searchFields.forEach(function (searchField) {
-        searchField.element = searchField.factory.buildElement(
-          searchField.config.name);
-    });
-}
-
-function appendSearchFieldElementsToDom() {
-    var elements = searchFields.map(function (searchField) {
-        return searchField.element;
-    });
-
-    $(".search-container .fields").append(elements);
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function initializeValueRetrieversOnSearchFields() {
-    searchFields.forEach(function (searchField) {
-        searchField.valueRetriever = searchField.factory
-            .buildValueRetriever(searchField.element);
-    });
-}
-
-function initializeValidatorsOnSearchFields() {
-    searchFields.map(function (searchField) {
-        searchField.validator = searchField.factory.buildValidator(
-            searchField.config.name);
-    });
-}</code></pre>
-        </section>
-
-        <section>
-          <pre class='taller'><code>function setupValidateEventHandler() {
-    $(".search-container button.validate").click(function () {
-        var errorMessageElements = searchFields
-            .map(function (searchField) {
-                return searchField.validator.validate(
-                    searchField.valueRetriever.getValue()
-                );
-            })
-            .filter(function (errorMessage) {
-                return !!errorMessage;
-            })
-            .map(function (errorMessage) {
-                return $("<div>" + errorMessage +
-                    "</div>");
-            });
-
-        $(".search-container .validation-errors")
-            .empty()
-            .append(errorMessageElements);
-    });
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function setupJsonExporter() {
-    $(".search-container button.to-json").click(function () {
-        var values = buildValuesObject();
-
-        $(".search-container .json-output")
-            .empty()
-            .append(JSON.stringify(values));
-    });
-
-    function buildValuesObject() {
-        return searchFields.reduce(function (memo, searchField) {
-            memo[searchField.config.name] = searchField
-                .valueRetriever.getValue();
-            return memo;
-        }, {});
-    }
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function RangeSearchFieldFactory() {
-    this.buildElement = function (fieldName) {
-        return $("&lt;div&gt;" + fieldName +
-            "&lt;input class=&apos;from&apos;&gt; to &lt;input class=&apos;to&apos;&gt;");
-    };
-
-    this.buildValueRetriever = function (element) {
-        return new RangeElementValueRetriever(element);
-    };
-
-    this.buildValidator = function (fieldName) {
-        return new RangeValidator(fieldName);
-    };
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function IsbnSearchFieldFactory() {
-    this.buildElement = function (fieldName) {
-        return $("&lt;div&gt;" + fieldName +
-            "&lt;input type=&apos;number&apos;&gt;&lt;/div&gt;");
-    };
-
-    this.buildValueRetriever = function (element) {
-        return new TextElementValueRetriever(element);
-    };
-
-    this.buildValidator = function (fieldName) {
-        return new IsbnValidator(fieldName);
-    };
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function TextSearchFieldFactory() {
-    this.buildElement = function (fieldName) {
-        return $("&lt;div&gt;" + fieldName +
-            "&lt;input type=&apos;text&apos;&gt;&lt;/div&gt;");
-    };
-
-    this.buildValueRetriever = function (element) {
-        return new TextElementValueRetriever(element);
-    };
-
-    this.buildValidator = function (fieldName) {
-        return new TextValidator(fieldName);
-    };
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function RangeElementValueRetriever(element) {
-    this.getValue = function () {
-        return {
-            min: $(element).find("input.from").val(),
-            max: $(element).find("input.to").val()
-        };
-    };
-}
-
-function TextElementValueRetriever(element) {
-    this.getValue = function () {
-        return $(element).find('input').val();
-    };
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function RangeValidator(fieldName) {
-    this.validate = function (value) {
-        var valid = $.isNumeric(value.min) &amp;&amp;
-            $.isNumeric(value.max) &amp;&amp;
-            value.min &lt;= value.max;
-
-        if (!valid) {
-            return fieldName +
-                " needs have valid numbers for min and max, " +
-                " and min must be less than or equal to max.";
-        } else {
-            return null;
-        }
-    };
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function IsbnValidator(fieldName) {
-    var onlyDigits = /^\d+$/;
-    this.validate = function (value) {
-        if (onlyDigits.test(value) &amp;&amp; (value.length == 10 ||
-                value.length == 13)) {
-            return null;
-        } else {
-            return fieldName +
-                " needs to contain either 10 or 13 digits.";
-        }
-    };
-}</code></pre>
-        </section>
-
-        <section>
-          <pre><code>function TextValidator(fieldName) {
-    this.validate = function (value) {
-        return null;
-    };
 }</code></pre>
         </section>
 
@@ -439,6 +187,10 @@ function TextElementValueRetriever(element) {
             <li>Contact List</li>
             <li><a target="_blank" href="../src/adapter-pattern/index.html">Demo</a></li>
           </ul>
+        </section>
+
+        <section>
+          <img src='./img/screenshots/adapter-pattern.png'/>
         </section>
 
         <section>
