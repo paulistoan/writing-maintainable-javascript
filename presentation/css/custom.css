@@ -17,6 +17,10 @@ section h3.isolated {
     margin-bottom: 100px;
 }
 
+.reveal section img {
+  border-width: 2px;
+}
+
 .reveal section pre code {
     font-size: 150%;
     overflow: hidden;
@@ -49,6 +53,10 @@ pre.small {
 
 section.design-patterns-book {
     position: relative;
+}
+
+section img.prominent-book-cover {
+  width: 400px; 
 }
 
 section img.book-cover {
