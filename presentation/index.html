@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
   <link rel="stylesheet" href="css/reveal.css">
-  <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="css/theme/white.css" id="theme">
   <link rel="stylesheet" href="css/custom.css">
 
   <!-- Code syntax highlighting -->
@@ -40,13 +40,25 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
       <section>
-        <h3>Writing Maintainable JavaScript</h3>
+        <img class='sponsors' src='img/sponsors.png'></img>
+      </section>
+
+      <section>
+        <h3 class='isolated'>Writing Maintainable JavaScript</h3>
         <p>
           <small>by <a href="mailto:paulistoan@gmail.com">Paul Istoan</a></small>
         </p>
         <p class='footer'>
           <img class='logo' src='./img/codecamp-logo.png' />
         </p>
+        <aside class="notes">
+          <ul>
+            <li>Solutions PMG</li>
+            <li>Mintel</li>
+            <li>Responsibility to future programmers</li>
+            <li>Design Patterns book</li>
+          </ul>
+        </aside>
       </section>
 
       <section>
@@ -94,7 +106,6 @@ define(["lib/backbone"], function(Backbone) {
       </section>
 
       <section>
-        <h2>RequireJS</h2>
         <pre><code>
 define(["lib/backbone", "views/ItemView"]
     function(Backbone, ItemView) {
@@ -109,15 +120,12 @@ define(["lib/backbone", "views/ItemView"]
       <section class='design-patterns-book'>
         <h2>Design Patterns</h2>
         <div>
-          <div class='book-cover'>
-            <img class='design-patterns-book-cover' src="img/design-patterns-book.jpg" />
+          <div>
+            <img class='book-cover' src="img/book-covers/design-patterns.jpg" />
           </div>
           <div class='content'>
             <ul>
-              <li>
-                One of the most influential books in the field of software engineering.
-                <small><a href="https://en.wikipedia.org/wiki/Design_Patterns">[1]</a></small>
-              </li>
+              <li>One of the most influential books in the field of software engineering.</li>
               <li>Presents 23 essential software design patterns that came out of recurring
                 solutions to common problems.</li>
               <li>Changes the way you approach writing software.</li>
@@ -132,6 +140,26 @@ define(["lib/backbone", "views/ItemView"]
           <li>Program to interfaces, not to implementations.</li>
           <li>Favor composition over inheritance.</li>
         </ul>
+        <aside class="notes">
+          <ul>
+            <li>
+              <strong>Program to interfaces</strong>
+              <ul>
+                <li>Easy to swap out implementations, configurable</li>
+                <li>Maintainable</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Favor composition</strong>
+              <ul>
+                <li>Inheritance is rigid</li>
+                <li>Composition allows finer grained control over what parts to implement
+                  in what modules</li>
+                <li>Example to follow</li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
       </section>
 
       <section>
@@ -153,7 +181,20 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
-        <h2>Abstract Factory</h2>
+        <div class='code-link'>
+          <a href='https://github.com/paulistoan/writing-maintainable-javascript'>
+            https://github.com/paulistoan/writing-maintainable-javascript
+          </a>
+          <img class='qr' src='img/qr-github-code.jpg'></img>
+        </div>
+      </section>
+
+      <section>
+        <h2>Abstract Factory</h2> &ldquo;Provide an interface for creating families of related or dependent
+        objects without specifying their concrete classes.&rdquo;
+      </section>
+
+      <section>
         <img src="./img/design-patterns-formal/abstract-factory.svg" />
       </section>
 
@@ -186,7 +227,23 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
-        <h2>Adapter</h2>
+        <h2>Creational Design Patterns</h2>
+        <ul>
+          <li>Abstract Factory</li>
+          <li>Builder</li>
+          <li>Factory Method</li>
+          <li>Prototype</li>
+          <li>Singleton</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Adapter</h2> &ldquo;Convert the interface of a class into another interface clients expect.
+        Adapter lets classes work together that couldn't otherwise because of incompatible
+        interfaces.&rdquo;
+      </section>
+
+      <section>
         <img src="./img/design-patterns-formal/adapter.gif" />
       </section>
 
@@ -200,7 +257,31 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
-        <h2>Mediator</h2>
+        <h2>Structural Design Patterns</h2>
+        <div class='split'>
+          <ul>
+            <li>Adapter</li>
+            <li>Bridge</li>
+            <li>Composite</li>
+          </ul>
+        </div>
+        <div class='split'>
+          <ul>
+            <li>Decorator</li>
+            <li>Facade</li>
+            <li>Flyweight</li>
+            <li>Proxy</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Mediator</h2> &ldquo;Define an object that encapsulates how a set of objects interact.
+        Mediator promotes loose coupling by keeping objects from referring to each
+        other explicitly, and it lets you vary their interaction independently.&rdquo;
+      </section>
+
+      <section>
         <img src="./img/design-patterns-formal/mediator.jpeg" />
       </section>
 
@@ -214,16 +295,49 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
+        <h2>Behavioral Design Patterns</h2>
+        <div class='split'>
+          <ul>
+            <li>Chain of responsibility</li>
+            <li>Command</li>
+            <li>Interpreter</li>
+            <li>Iterator</li>
+            <li>Mediator</li>
+            <li>Memento</li>
+          </ul>
+        </div>
+        <div class='split'>
+          <ul>
+            <li>Observer</li>
+            <li>State</li>
+            <li>Strategy</li>
+            <li>Template method</li>
+            <li>Visitor</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Other Resources</h3>
+        <div class='split'>
+          <img class='book-cover' src='img/book-covers/clean-code.jpg'></img>
+        </div>
+        <div class='split'>
+          <img class='book-cover' src='img/book-covers/code-complete.jpg'></img>
+        </div>
+      </section>
+
+      <section>
         <h3>Questions?</h3>
       </section>
 
-      <!--
-        <section>
-          <h3>index.html</h3>
-          <pre><code>
-          </code></pre>
-        </section>
--->
+      <section>
+        <h3 class='isolated'>Thank You!</h3> Please fill in your evaluation form.
+
+        <p class='footer'>
+          <img class='logo' src='./img/codecamp-logo.png' />
+        </p>
+      </section>
 
     </div>
   </div>

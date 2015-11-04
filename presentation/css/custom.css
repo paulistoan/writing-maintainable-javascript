@@ -1,43 +1,80 @@
+body {
+    background-color: #e5f2fb;
+}
+
+img.sponsors {
+    width: 700px;
+    margin: 70px 0;
+    height: 80%;
+}
+
 section h3.code {
-  text-transform: none;
+    text-transform: none;
+}
+
+section h3.isolated {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.reveal section pre code {
+    font-size: 150%;
+    overflow: hidden;
 }
 
 section pre.taller code {
-  max-height: 600px;
+    max-height: 600px;
 }
 
 p.footer {
-  text-align: right;
+    text-align: right;
 }
 
 p.footer img.logo {
-  border: none;
+    border: none;
 }
 
 section p.reference {
-  text-align: right;
-  font-size: 50%;
+    text-align: right;
+    font-size: 50%;
 }
 
 pre.tree {
-  font-size: 40%;
+    font-size: 40%;
 }
 
 pre.small {
-  font-size: 40%;
+    font-size: 40%;
 }
 
 section.design-patterns-book {
-  position: relative;
+    position: relative;
 }
 
-section.design-patterns-book div.book-cover {
-  float: left;
-  width: 30%;
+section img.book-cover {
+    float: left;
+    width: 300px;
 }
 
 section.design-patterns-book div.content {
-  margin-left: 50px;
-  float: left;
-  width: 60%;
+    margin-left: 50px;
+    float: left;
+    width: 60%;
+}
+
+section div.split {
+    display: inline-block;
+    width: 40%;
+    vertical-align: middle;
+}
+
+section div.code-link {
+    margin-top: 20px;
+    font-size: 80%;
+}
+
+section div.code-link img.qr {
+    margin-top: 30px;
+    height: 350px;
+    width: 350px;
 }
