@@ -65,6 +65,10 @@
 
       <section>
         <img class='prominent-book-cover' src="img/book-covers/javascript-definitive-guide.jpg" />
+        <p class='reference'>
+          <a target="_blank"
+            href='http://www.amazon.com/JavaScript-Definitive-Guide-David-Flanagan/dp/0596000480'>[1]</a>
+        </p>
       </section>
 
       <section>
@@ -95,7 +99,8 @@
         └── itemview.js
 					</pre>
         <p class='reference'>
-          <a href='https://github.com/javascript-playground/backbone-require-example'>[1]</a>
+          <a target="_blank"
+            href='https://github.com/javascript-playground/backbone-require-example'>[2]</a>
         </p>
       </section>
 
@@ -109,6 +114,9 @@ define(["lib/backbone"], function(Backbone) {
   return ItemView;
 });
           </code></pre>
+        <p class='reference'>
+          <a target="_blank" href='http://requirejs.org/'>[3]</a>
+        </p>
         <aside class="notes">
           <ul>
             <li>Helps with organizing our code into small modules with specific intent</li>
@@ -131,6 +139,10 @@ define(["lib/backbone", "views/ItemView"]
 
       <section class='design-patterns-book'>
         <img class='prominent-book-cover' src="img/book-covers/design-patterns.jpg" />
+        <p class='reference'>
+          <a target="_blank"
+             href='http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented-ebook/dp/B000SEIBB8'>[4]</a>
+        </p>
       </section>
 
       <section class='design-patterns-book'>
@@ -151,34 +163,6 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
-        <h3>Essential Takeaways</h3>
-        <ul>
-          <li>Program to interfaces, not to implementations.</li>
-          <li>Favor composition over inheritance.</li>
-        </ul>
-        <aside class="notes">
-          <ul>
-            <li>
-              <strong>Program to interfaces</strong>
-              <ul>
-                <li>Easy to swap out implementations, configurable</li>
-                <li>Maintainable</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Favor composition</strong>
-              <ul>
-                <li>Inheritance is rigid</li>
-                <li>Composition allows finer grained control over what parts to implement
-                  in what modules</li>
-                <li>Example to follow</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-      </section>
-
-      <section>
         <h3>3 Types of Patterns</h3>
         <ol>
           <li><strong>Creational</strong>: help you build objects</li>
@@ -190,20 +174,36 @@ define(["lib/backbone", "views/ItemView"]
       <section>
         <h3>Sample App: Contacts</h3>
         <ul>
+          <li>Add - Mediator Pattern</li>
           <li>Search - Abstract Factory Pattern</li>
           <li>Export - Adapter Pattern</li>
-          <li>Add - Mediator Pattern</li>
         </ul>
       </section>
 
       <section>
         <div class='code-link'>
-          <a href='https://github.com/paulistoan/writing-maintainable-javascript'>
-            https://github.com/paulistoan/writing-maintainable-javascript
-          </a>
+          <div class='link'>
+            <a target="_blank" href='https://github.com/paulistoan/writing-maintainable-javascript'>
+              https://github.com/paulistoan/writing-maintainable-javascript
+            </a>
+          </div>
+          <div class='link'>
+            <a target="_blank" href='http://git.io/v8soT'>
+              http://git.io/v8soT
+            </a>
+          </div>
           <img class='qr' src='img/qr-github-code.jpg'></img>
         </div>
       </section>
+
+      <section>
+        <h3>Common Themes</h3>
+        <ul>
+          <li>Program to interfaces, not to implementations.</li>
+          <li>Favor composition over inheritance.</li>
+        </ul>
+      </section>
+
 
       <section>
         <h3>Abstract Factory</h3> &ldquo;Provide an interface for creating families of related or dependent
@@ -211,7 +211,11 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
-        <img src="./img/design-patterns-formal/abstract-factory.gif" />
+        <img src="./img/design-patterns-formal/abstract-factory.png" />
+        <p class='reference'>
+          <a target="_blank"
+             href='https://www.l2f.inesc-id.pt/~david/wiki/pt/images/thumb/a/a6/Abstract-factory-dpcd.png/1400px-Abstract-factory-dpcd.png'>[5]</a>
+        </p>
       </section>
 
       <section>
@@ -260,7 +264,11 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
-        <img src="./img/design-patterns-formal/adapter.gif" />
+        <img src="./img/design-patterns-formal/adapter.png" />
+        <p class='reference'>
+          <a target="_blank"
+             href='http://buraktas.com/public/images/2015/01/adapter-design-pattern.png'>[6]</a>
+        </p>
       </section>
 
       <section>
@@ -298,7 +306,11 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
-        <img src="./img/design-patterns-formal/mediator.jpeg" />
+        <img src="./img/design-patterns-formal/mediator.jpg" />
+        <p class='reference'>
+          <a target="_blank"
+             href='http://img.my.csdn.net/uploads/201409/07/1410057502_7783.jpg'>[7]</a>
+        </p>
       </section>
 
       <section>
@@ -312,6 +324,10 @@ define(["lib/backbone", "views/ItemView"]
 
       <section>
         <img src="./img/design-patterns-applied/mediator-field.png" />
+      </section>
+
+      <section>
+        <img src='./img/screenshots/mediator.png' />
       </section>
 
       <section>
@@ -338,6 +354,34 @@ define(["lib/backbone", "views/ItemView"]
       </section>
 
       <section>
+        <h3>Essential Takeaways</h3>
+        <ul>
+          <li>Program to interfaces, not to implementations.</li>
+          <li>Favor composition over inheritance.</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>
+              <strong>Program to interfaces</strong>
+              <ul>
+                <li>Easy to swap out implementations, configurable</li>
+                <li>Maintainable</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Favor composition</strong>
+              <ul>
+                <li>Inheritance is rigid</li>
+                <li>Composition allows finer grained control over what parts to implement
+                  in what modules</li>
+                <li>Example to follow</li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section>
         <h3>Other Resources</h3>
         <div class='split'>
           <img class='book-cover' src='img/book-covers/clean-code.jpg'></img>
@@ -350,7 +394,7 @@ define(["lib/backbone", "views/ItemView"]
       <section>
         <h3>Conclusions</h3>
         <ul>
-          <li>Focusing on writing maintainable code</li>
+          <li>Focus on writing maintainable code</li>
           <li>The value of using patterns</li>
           <li>Identifying when to apply a pattern</li>
           <li>Identifying when not to apply a pattern</li>
