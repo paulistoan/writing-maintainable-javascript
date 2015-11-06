@@ -2,8 +2,8 @@ define(["TextElementValueRetriever", "TextValidator"],
     function (TextElementValueRetriever, TextValidator) {
         function TextSearchFieldFactory() {
             this.buildElement = function (fieldName) {
-                return $("<div>" + fieldName +
-                    "<input type='text'></div>");
+                return $("<span> " + fieldName +
+                    "<input type='text'></span>");
             };
 
             this.buildValueRetriever = function (element) {

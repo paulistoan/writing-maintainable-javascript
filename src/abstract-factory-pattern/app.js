@@ -20,6 +20,7 @@ define(["jquery", "config",
             appendSearchFieldElementsToDom();
             initializeValueRetrieversOnSearchFields();
             initializeValidatorsOnSearchFields();
+            appendValidatorRulesToSearchFields();
             setupValidateEventHandler();
             setupJsonExporter();
 
@@ -51,7 +52,8 @@ define(["jquery", "config",
 
             function appendSearchFieldElementsToDom() {
                 var elements = searchFields.map(function (searchField) {
-                    return searchField.element;
+                    return $("<div class='search-field'></div>")
+                        .append(searchField.element);
                 });
 
                 $(".search-container .fields").append(elements);
@@ -71,25 +73,53 @@ define(["jquery", "config",
                 });
             }
 
+            function appendValidatorRulesToSearchFields() {
+                searchFields.map(function (searchField) {
+                    var rules = searchField.validator.rulesAsString();
+                    if (rules) {
+                        $(searchField.element).after("<span>" +
+                            rules + "</span>");
+                    }
+                });
+            }
+
             function setupValidateEventHandler() {
                 $(".search-container button.validate").click(function () {
-                    var errorMessageElements = searchFields
-                        .map(function (searchField) {
-                            return searchField.validator.validate(
-                                searchField.valueRetriever.getValue()
-                            );
-                        })
-                        .filter(function (errorMessage) {
-                            return !!errorMessage;
-                        })
-                        .map(function (errorMessage) {
-                            return $("<div>" + errorMessage +
-                                "</div>");
-                        });
+                    setErrorClassOnInvalidFields();
+                    addErrorMessageElements();
 
-                    $(".search-container .validation-errors")
-                        .empty()
-                        .append(errorMessageElements);
+                    function setErrorClassOnInvalidFields() {
+                        searchFields.forEach(function (searchField) {
+                            var hasError = searchField.validator
+                                .validate(
+                                    searchField.valueRetriever
+                                    .getValue()
+                                );
+                            searchField.element.toggleClass(
+                                'error', !!hasError);
+                        });
+                    }
+
+                    function addErrorMessageElements() {
+                        var errorMessageElements = searchFields
+                            .map(function (searchField) {
+                                return searchField.validator.validate(
+                                    searchField.valueRetriever
+                                    .getValue()
+                                );
+                            })
+                            .filter(function (errorMessage) {
+                                return !!errorMessage;
+                            })
+                            .map(function (errorMessage) {
+                                return $("<div>" + errorMessage +
+                                    "</div>");
+                            });
+
+                        $(".search-container .validation-errors")
+                            .empty()
+                            .append(errorMessageElements);
+                    }
                 });
             }
 

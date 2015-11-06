@@ -2,8 +2,9 @@ define(["RangeElementValueRetriever", "RangeValidator"],
     function (RangeElementValueRetriever, RangeValidator) {
         function RangeSearchFieldFactory() {
             this.buildElement = function (fieldName) {
-                return $("<div>" + fieldName +
-                    "<input class='from'> to <input class='to'>");
+                return $("<span> " + fieldName +
+                    "<input class='from'> to <input class='to'></span>"
+                );
             };
 
             this.buildValueRetriever = function (element) {

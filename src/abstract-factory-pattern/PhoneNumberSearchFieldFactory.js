@@ -2,8 +2,8 @@ define(["TextElementValueRetriever", "PhoneNumberValidator"],
     function (TextElementValueRetriever, PhoneNumberValidator) {
         function PhoneNumberSearchFieldFactory() {
             this.buildElement = function (fieldName) {
-                return $("<div>" + fieldName +
-                    "<input type='text'></div>");
+                return $("<span> " + fieldName +
+                    "<input type='text'></span>");
             };
 
             this.buildValueRetriever = function (element) {

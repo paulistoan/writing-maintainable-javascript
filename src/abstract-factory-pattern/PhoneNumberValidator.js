@@ -1,13 +1,17 @@
 define(function () {
     function PhoneNumberValidator(fieldName) {
-        var phoneNumberRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
+        var digitRegex = /^\d{1,10}$/;
         this.validate = function (value) {
-            if (phoneNumberRegex.test(value)) {
+            if (digitRegex.test(value)) {
                 return null;
             } else {
                 return fieldName +
-                    " needs to be in the format (###) ###-####.";
+                    " must contain only digits and cannot exceed 10 digits.";
             }
+        };
+
+        this.rulesAsString = function () {
+            return "Only digits and must not exceed 10 digits.";
         };
     }
 

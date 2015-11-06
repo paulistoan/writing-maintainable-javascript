@@ -12,6 +12,10 @@ define(function () {
                 return null;
             }
         };
+
+        this.rulesAsString = function () {
+            return "min > max";
+        };
     }
 
     return RangeValidator;

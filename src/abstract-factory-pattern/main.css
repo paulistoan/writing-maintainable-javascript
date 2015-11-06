@@ -2,10 +2,15 @@
     color: red;
 }
 
+.search-container .search-field .error {
+  border: 2px solid red;
+  padding: 4px;
+}
+
 .search-container * {
     margin-top: 5px;
 }
 
 .search-container pre {
-  width: 400px;
+    width: 400px;
 }
