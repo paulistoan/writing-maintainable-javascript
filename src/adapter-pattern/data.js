@@ -22,28 +22,8 @@ define([], function () {
             lastName: 'Harman'
         }, {
             firstName: 'Michale',
-            lastName: 'Screws',
+            lastName: 'Bowman',
             phone: '(899) 856-1322',
-            age: 78
-        }, {
-            firstName: 'Shirlee',
-            lastName: 'Callen',
-            phone: '(833) 509-7402',
-            age: 91
-        }, {
-            firstName: 'Kimberlee',
-            lastName: 'Tisch',
-            phone: '(844) 160-8645',
-            age: 24
-        }, {
-            firstName: 'Noemi',
-            lastName: 'Fox',
-            phone: '(844) 170-2603',
-            age: 18
-        }, {
-            firstName: 'Kecia',
-            lastName: 'Motter',
-            phone: '(833) 596-8184',
             age: 78
         }, {
             firstName: 'Dennis',
