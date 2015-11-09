@@ -71,16 +71,15 @@
       <section>
         <img src="img/funny.jpg" />
         <p class='reference'>
-          <a target="_blank"
-            href='http://cdn.memegenerator.net/instances/400x/35984005.jpg'>[1]</a>
+          <a target="_blank" href='http://cdn.memegenerator.net/instances/400x/35984005.jpg'>[1]</a>
         </p>
       </section>
 
       <section>
-        <img class='prominent-book-cover' src="img/book-covers/javascript-definitive-guide.jpg" />
+        <img class='prominent-book-cover' src="img/book-covers/javascript-definitive-guide.jpg"
+        />
         <p class='reference'>
-          <a target="_blank"
-            href='http://www.amazon.com/JavaScript-Definitive-Guide-David-Flanagan/dp/0596000480'>[2]</a>
+          <a target="_blank" href='http://www.amazon.com/JavaScript-Definitive-Guide-David-Flanagan/dp/0596000480'>[2]</a>
         </p>
       </section>
 
@@ -112,8 +111,7 @@
         └── itemview.js
 					</pre>
         <p class='reference'>
-          <a target="_blank"
-            href='https://github.com/javascript-playground/backbone-require-example'>[3]</a>
+          <a target="_blank" href='https://github.com/javascript-playground/backbone-require-example'>[3]</a>
         </p>
       </section>
 
@@ -153,8 +151,7 @@ define(["lib/backbone", "views/ItemView"]
       <section class='design-patterns-book'>
         <img class='prominent-book-cover' src="img/book-covers/design-patterns.jpg" />
         <p class='reference'>
-          <a target="_blank"
-             href='http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented-ebook/dp/B000SEIBB8'>[5]</a>
+          <a target="_blank" href='http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented-ebook/dp/B000SEIBB8'>[5]</a>
         </p>
       </section>
 
@@ -226,8 +223,7 @@ define(["lib/backbone", "views/ItemView"]
       <section>
         <img src="./img/design-patterns-formal/abstract-factory.png" />
         <p class='reference'>
-          <a target="_blank"
-             href='https://www.l2f.inesc-id.pt/~david/wiki/pt/images/thumb/a/a6/Abstract-factory-dpcd.png/1400px-Abstract-factory-dpcd.png'>[6]</a>
+          <a target="_blank" href='https://www.l2f.inesc-id.pt/~david/wiki/pt/images/thumb/a/a6/Abstract-factory-dpcd.png/1400px-Abstract-factory-dpcd.png'>[6]</a>
         </p>
       </section>
 
@@ -279,8 +275,7 @@ define(["lib/backbone", "views/ItemView"]
       <section>
         <img src="./img/design-patterns-formal/adapter.png" />
         <p class='reference'>
-          <a target="_blank"
-             href='http://buraktas.com/public/images/2015/01/adapter-design-pattern.png'>[7]</a>
+          <a target="_blank" href='http://buraktas.com/public/images/2015/01/adapter-design-pattern.png'>[7]</a>
         </p>
       </section>
 
@@ -316,13 +311,19 @@ define(["lib/backbone", "views/ItemView"]
         <h3>Mediator</h3> &ldquo;Define an object that encapsulates how a set of objects interact.
         Mediator promotes loose coupling by keeping objects from referring to each
         other explicitly, and it lets you vary their interaction independently.&rdquo;
+
+        <aside class='notes'>
+          As the number of objects in a system increases, so do the interconnections between
+          them. This works against reusability. The mediator pattern can help us
+          with this by decoupling components and funnelling all their communication
+          through a common mediator.
+        </aside>
       </section>
 
       <section>
         <img src="./img/design-patterns-formal/mediator.jpg" />
         <p class='reference'>
-          <a target="_blank"
-             href='http://img.my.csdn.net/uploads/201409/07/1410057502_7783.jpg'>[8]</a>
+          <a target="_blank" href='http://img.my.csdn.net/uploads/201409/07/1410057502_7783.jpg'>[8]</a>
         </p>
       </section>
 
@@ -341,6 +342,9 @@ define(["lib/backbone", "views/ItemView"]
 
       <section>
         <img src="./img/design-patterns-applied/mediator-aggregate.png" />
+        <aside class='notes'>
+          Events
+        </aside>
       </section>
 
       <section>
@@ -392,7 +396,11 @@ define(["lib/backbone", "views/ItemView"]
                 <li>Inheritance is rigid</li>
                 <li>Composition allows finer grained control over what parts to implement
                   in what modules</li>
-                <li>Example to follow</li>
+                <li>Composition allows us to swap out one functionality for another with
+                  very little cost</li>
+                <li>Composition forces us to think about the public interface of an object
+                  while inheritance allows us to tinker with its internals which
+                  breaks encapsulation.</li>
               </ul>
             </li>
           </ul>
